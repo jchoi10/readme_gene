@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jchoi10/readme_gene/issues"
   },
-  "homepage": "https://github.com/jchoi10/readme_gene#readme"
+  "homepage": "https://github.com/jchoi10/readme_gene#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
 }
