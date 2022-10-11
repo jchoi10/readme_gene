@@ -1,7 +1,96 @@
 // TODO: Include packages needed for this application
+const fs = require("fs");
+const util = require("util")
+const inquirer = require("inquirer");
+const generateReadme = require("./utils/generateMarkdown");
+const writeFileAsync = util.promisify(fs.writeFile);
 
 // TODO: Create an array of questions for user input
-const questions = [];
+const promptUser = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'projectTitle',
+            message: 'What is the project title? (Required)',
+            validate: projectTitleInput => {
+                if(projectTitleInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your project title!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: "checkbox",
+            name: "license",
+            message: "Chose the appropriate license for this project: ",
+            choices: [
+                "Apache",
+                "Academic",
+                "GNU",
+                "ISC",
+                "MIT",
+                "Mozilla",
+                "Open"
+            ]
+        },
+        {
+            type: 'input',
+            name: 'description',
+            message: 'What is your project about? (Required)',
+            validate: installationInput => {
+                if(installationInput) {
+                    return true;
+                } else {
+                    console.log('Tell us about your project!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'How do you install your project? (Required)',
+            validate: installationInput => {
+                if(installationInput) {
+                    return true;
+                } else {
+                    console.log('Tell us how to install your project!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'What is this project used for? (Required)',
+            validate: usageInput => {
+                if(usageInput) {
+                    return true;
+                } else {
+                    console.log('Tell us the usage of this proejct!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'feature',
+            message: 'If applicable, please provide list the features of the project.',
+        },
+        {
+            type: 'input',
+            name: 'contribute',
+            message: 'If applicable, please provide guidelines on how other can contribute to your project.',
+        },
+        {
+            type: 'input',
+            name: 'test',
+            message: 'If applicable, provide any tests written for your application and provide examples on how to run them.',
+        }
+    ])
+};
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
