@@ -35,5 +35,5 @@
 
 # Issue resolved
 
-- It generate random password.
-- selection is updated.
+- README.md wasn't generated when executed.
+- code clean.
