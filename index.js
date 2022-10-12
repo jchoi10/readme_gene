@@ -11,7 +11,7 @@ const promptUser = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'projectTitle',
+            name: 'title',
             message: 'What is the project title? (Required)',
             validate: projectTitleInput => {
                 if(projectTitleInput) {
