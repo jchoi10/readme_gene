@@ -25,13 +25,13 @@
 - WHEN I click on the links in the Table of Contents
 - THEN I am taken to the corresponding section of the README
 
-# Screenshot of Final Webpage
+# Demo Video Google Drive Link
 
-![screenshot](./assets/Image/Password_Generator_Screenshot_sub_rev1.png)
+[https://drive.google.com/file/d/10xYiauHMh3kmVIfb9Bweae0pLnydiURZ/view?usp=sharing](https://drive.google.com/file/d/10xYiauHMh3kmVIfb9Bweae0pLnydiURZ/view?usp=sharing)
 
 # Github URL
 
-[https://jchoi10.github.io/password_generatorX/](https://jchoi10.github.io/password_generatorX/)
+[https://github.com/jchoi10/readme_gene](https://github.com/jchoi10/readme_gene/)
 
 # Issue resolved
 
