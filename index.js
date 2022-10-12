@@ -3,7 +3,8 @@ const fs = require("fs");
 const util = require("util")
 const inquirer = require("inquirer");
 const generateReadme = require("./utils/generateMarkdown");
-const writeFileAsync = util.promisify(fs.writeFile);
+const { Z_FIXED } = require("zlib");
+// const writeFileAsync = util.promisify(fs.writeFile);
 
 // TODO: Create an array of questions for user input
 const promptUser = () => {
@@ -50,7 +51,7 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'installation',
+            name: 'install',
             message: 'How do you install your project? (Required)',
             validate: installationInput => {
                 if(installationInput) {
@@ -76,7 +77,7 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'feature',
+            name: 'features',
             message: 'If applicable, please provide list the features of the project.',
         },
         {
@@ -89,22 +90,29 @@ const promptUser = () => {
             name: 'test',
             message: 'If applicable, provide any tests written for your application and provide examples on how to run them.',
         }
-    ])
-};
+    ]).then((answers) => {
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeToFile(fileName, data, err => {
-        if (err) {
-            return console.log(err)
-        } else {
-            console.log('Successfully created README.md file!')
-        }
+        fs.writeFile('READMD.md', generateReadme(answers),
+            (err) => err? console.error(err) : console.log('You successfully created README.md file!')
+        );
+
     })
 };
 
+// TODO: Create a function to write README file
+// function writeToFile(fileName, data) {
+//     fs.writeToFile(fileName, data, err => {
+//         if (err) {
+//             console.log(err);
+//             return;
+//         } else {
+//             console.log('You successfully created README.md file!')
+//         }
+//     })
+// };
+
 // TODO: Create a function to initialize app
-function init() {};
+// function promptUser() {};
 
 // Function call to initialize app
-init();
+promptUser();
