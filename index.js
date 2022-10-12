@@ -89,6 +89,16 @@ const promptUser = () => {
             type: 'input',
             name: 'test',
             message: 'If applicable, provide any tests written for your application and provide examples on how to run them.',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'If applicable, provide your email for contact.',
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'If applicable, provide your github ID for contribution',
         }
     ]).then((answers) => {
 
